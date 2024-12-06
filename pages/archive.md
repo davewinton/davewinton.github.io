@@ -2,7 +2,7 @@
 layout: archive
 title: "Blog Archive"
 permalink: /archive/
-hide: true
+hide: false 
 excluded: true
 icon: "fa-archive"
 position: 6
