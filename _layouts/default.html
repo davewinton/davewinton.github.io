@@ -15,5 +15,7 @@
     </div>
     {% capture _footer %}{% include default/footer.liquid %}{% endcapture %}
     {{ _footer | split: " " | join: " "}}
+    <!-- category toggle JS -->
+    <script src="{{ '/assets/js/category-toggle.js' | relative_url }}"></script>
   </body>
 </html>
