@@ -12,7 +12,7 @@ brought home our first family PC---a clunky beast running Windows 95 on
 that glacial 28kbps dial-up internet. Sure, it was ancient by today\'s
 standards, but it opened up a world of possibilities beyond just
 blasting through the \"100-in-1\" DOS games that came with the CD-ROMs
-packaged the computer.
+packaged with the computer.
 
 #### My Dad: Tech Sensei
 
@@ -22,7 +22,7 @@ troubleshooting those frequent computer hiccups on old systems to
 navigating the wild west of the early internet. We even teamed up to
 build a website back in the day, proudly showcasing my \"Pokémon of the
 Week\" picks. (It was groundbreaking stuff in the \'90s, trust me.) Honestly, he\'s
-the reason I fell head over heels for tech and kicked off a journey
+the reason I fell head over heels for tech and that kicked off a journey
 that\'s been rolling strong for over 30 years.
 
 #### What Makes Me Tick
@@ -36,16 +36,16 @@ down for security, I'm all in for the ride. Journey before destination.
 
 I majored in Engineering during my time at university, but my real
 \"Eureka!\" moment was An \"Intro to Programming\" class that was
-mandatory for all first year Engineering students. That's where I
+mandatory for all first year Engineering students. I'd always loved computers, but that's where I
 discovered my love of Linux and programming, opening doors I didn't even
-know existed. Since then, I've been on a self-taught mission to master
+know existed. Since then, I've been on a (mostly) self-taught mission to master
 programming languages, frameworks, security best practices and the art
 of good development.
 
 #### What I'm Working On
 
 These days, outside of family life my free time is a mix of personal projects and learning. 
-I'm diving into seriously studying networking and pentesting, aiming to add some shiny
+I'm diving into seriously studying networking and pentesting at the moment, aiming to add some shiny
 cybersecurity certifications and new knowledge to my toolkit over the next few years. 
 
 #### Curious About More?
