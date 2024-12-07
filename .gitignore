@@ -34,3 +34,5 @@ jekyll-theme-type-on-strap.gemspec
 *copy.md
 test/*
 /type-on-strap*/*
+
+_posts/1970-01-01-test.md

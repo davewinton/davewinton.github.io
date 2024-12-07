@@ -69,9 +69,18 @@
   position: relative;                                   /* Enable positioning for tags */
   transition: transform 0.3s ease;
 
+  /* Remove underline from <a> tags inside .post-card */
+  a {
+    text-decoration: none; /* Remove underline by default */
+  }
+
   &:hover {
     background-color: var(--base02);                    /* Selection Background */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover a {
+    text-decoration: none; /* Ensure no underline on hover */
   }
 
   .post-card-content {
@@ -131,6 +140,7 @@
     }
   }
 }
+
 
 /* Category Title Styling */
 .category-title {
