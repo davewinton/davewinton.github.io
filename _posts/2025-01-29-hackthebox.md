@@ -27,7 +27,7 @@ My hope is that this series becomes a useful "cheat sheet" for learners preparin
 
 ## Bug Bounty Hunter
 
-- [Module 1: Web Requests]({% post_url 2025-01-29-bbh-m1-web-requests %})
+- [Module 1: Web Requests]({% post_url 2025-01-29-bbh-m1 %})
 - [Module 2: Introduction to Web Applications]()
 - [Module 3: Using Web Proxies]()
 
