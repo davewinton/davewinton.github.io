@@ -4,7 +4,7 @@ url: "https://davewinton.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
 title: Dave Winton                                      # site's title
-description: "Personal blog with a focus on programming and cyber security" # used by search engines
+description: "Personal blog" # used by search engines
 avatar: assets/img/triangle.png                         # Empty for no avatar in navbar
 favicon: assets/favicon.ico                             # Icon displayed in the tab
 
