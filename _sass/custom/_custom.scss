@@ -1,0 +1,195 @@
+/* Category Cards Styling (Top Row) */
+.category-cards-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;                                          /* Small gap between cards */
+  margin-bottom: 1rem;                                  /* Tight margin below */
+  flex-wrap: wrap;
+}
+
+.category-card {
+  background-color: var(--base01);                      /* Lighter Background */
+  color: var(--base05);                                 /* Default theme Foreground */
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;                                /* Rounded corners */
+  padding: 0.5rem;                                      /* Minimal padding */
+  text-align: center;
+  width: calc(25% - 0.5rem);                            /* 4 cards per row */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);           /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  h3 {
+    font-size: 1.5rem;                                  /* Smaller font for category name */
+    margin: 0.25rem 0; 
+    color: var(--base05);
+  }
+
+  p {
+    font-size: 1.0rem;                                  /* Smaller description font */
+    color: var(--base03);                               /* Muted text color */
+    margin: 0; 
+  }
+}
+
+/* Post Cards Styling */
+.category-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; 
+}
+
+/* For transitioning category cards */
+.category-group {
+  display: none;                                        /* Initially hidden */
+  opacity: 0;
+  transform: scale(0.9);                                /* Used for the "unfold" effect */
+  transition: opacity 0.5s ease, transform 0.5s ease;   /* Smooth fade and scale */
+}
+
+.category-group.visible {
+  display: block;                                       /* Make it visible */
+  opacity: 1;
+  transform: scale(1);                                  /* Scale to full size */
+  transition: opacity 0.5s ease, transform 0.5s ease;   /* Reset transition for visibility */
+}
+
+.post-card {
+  background-color: var(--base01);                      /* Lighter Background */
+  color: var(--base05);                                 /* Default Foreground */
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;                                /* Subtle rounded corners */
+  padding: 0.75rem;                                     /* Minimal padding */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;                                   /* Enable positioning for tags */
+  transition: transform 0.3s ease;
+
+  /* Remove underline from <a> tags inside .post-card */
+  a {
+    text-decoration: none; /* Remove underline by default */
+  }
+
+  &:hover {
+    background-color: var(--base02);                    /* Selection Background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover a {
+    text-decoration: none; /* Ensure no underline on hover */
+  }
+
+  .post-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; 
+  }
+
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+
+    .post-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--base05);
+    }
+
+    .post-date {
+      font-size: 1.5rem; 
+      color: var(--base03);                        
+    }
+  }
+
+  .post-excerpt {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--base05);
+    margin: 0; 
+  }
+
+  /* Tag Styling */
+  .post-tags {
+    position: relative;                                 /* Position relative to post card */
+    margin-top: 1rem;                                   /* Add margin above tags to separate them from the excerpt */
+    display: flex;
+    gap: 0.5rem;                                        /* Small gap between tags */
+    flex-wrap: wrap;                                    /* Allow tags to wrap if they overflow */
+    justify-content: flex-end;                          /* Align tags to the right */
+    font-size: 0.8rem;                                  /* Compact font size for tags */
+  }
+
+  .tag {
+    background-color: var(--base03); 
+    color: var(--base01); 
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem; 
+    font-size: 0.75rem;                                 /* Smaller font */
+    white-space: nowrap;                                /* Prevent wrapping */
+    text-decoration: none;                              /* Remove underline */
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--base09);                  /* Highlight tag on hover */
+    }
+  }
+}
+
+
+/* Category Title Styling */
+.category-title {
+  font-size: 1.75rem;                                   /* Larger font size for title */
+  font-weight: bold;                                    /* Bold title */
+  color: var(--base09);                                 /* Complimentary color for category */
+  margin-bottom: 0.5rem;                                /* Space below the title */
+  border-bottom: 1px solid var(--border);               /* Separator under the title */
+  padding-bottom: 0.25rem;                              /* Padding under title */
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+  .category-cards-row {
+    justify-content: center;
+  }
+
+  .category-card {
+    width: calc(40% - 0.5rem);                          /* Wider for smaller screens */
+  }
+
+  .post-card {
+    padding: 0.5rem;                                    /* Reduce padding more for small screens */
+  }
+
+  .post-tags {
+    margin-top: 1rem;                                   /* Ensure margin is there for the tags */
+    justify-content: flex-start;                        /* Align tags to the left on smaller screens */
+    gap: 0.5rem;                                        /* Gap between tags */
+    flex-wrap: wrap;                                    /* Allow tags to wrap */
+  }
+}
+
+@media (max-width: 480px) {
+  .category-card {
+    width: 100%;                                        /* Full width on very small screens */
+  }
+
+  .post-card {
+    padding: 0.5rem;                                    /* Consistent compactness */
+  }
+
+  .post-tags {
+    margin-top: 1rem;                                   /* Separate tags from excerpt */
+    justify-content: flex-start;                        /* Keep tags left-aligned on smaller screens */
+    width: auto;                                        
+    gap: 0.5rem;                                        /* Space between tags */
+    flex-wrap: wrap; 
+  }
+}
+
+
