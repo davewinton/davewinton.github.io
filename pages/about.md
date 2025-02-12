@@ -51,4 +51,4 @@ cybersecurity certifications and new knowledge to my toolkit over the next few y
 #### Curious About More?
 
 Hit up my blog for the latest on my projects, discoveries, and
-occasional tech rants. Let's geek out together!
+occasional tech rants.
