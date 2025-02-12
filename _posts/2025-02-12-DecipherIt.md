@@ -647,7 +647,7 @@ except UnicodeDecodeError as e:
 
 ## Where can I find decipher.it.py?
 
-You can see the entire script at on my [GitHub](https://github.com/davewinton/decipherit).
+You can see the entire script on my [GitHub](https://github.com/davewinton/decipherit), along with the other python scripts I have created and reference here.
 
 The script also outputs a table (as shown below) which lists all decryption parameters (salt, nonce, both keys, ciphertext) which allows any modern AES-CTR implementation to decrypt the data without dealing with the quirks of this funny crypto system.
 
@@ -708,9 +708,10 @@ print(f"Deciphered Message: {aes_ctr_decrypt(ctext, key, nonce).decode()}")
 Which should output:
 
 ```shell
-python3 decipher.py
+python3 aes-ctr-decrypt.py
 Deciphered Message: Hello World
 ```
+
 ## Attacking ciphertext to reveal time of creation
 
 I thought it might be a good idea to show a possible attack on **EncipherIt** ciphertext. 
