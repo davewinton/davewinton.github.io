@@ -14,7 +14,7 @@ excerpt_separator: <!--more-->
 <!--more-->
 The Wayback Machine has the first snapshot of the site taken on **2011-06-17** but the website itself mentions earlier versions so I can't be completely sure of its age.
 
-![encipher.it homepage](/assets/img/encipherit/encipherit-homepage.jpg)
+![encipher.it homepage](/assets/img/encipherit/encipherit-homepage.png)
 
 **Table of Contents:**
 - [What was encipher.it?](#what-was-encipherit)
@@ -47,7 +47,7 @@ The Wayback Machine has the first snapshot of the site taken on **2011-06-17** b
 
 Searching through the first iterations of the site, it appears that it was originally intended to be used as a JavaScript bookmarklet which could encrypt/decrypt text on the fly for email or anything else. Later on the bookmarklet version was removed and the website simply provided a textbox for encryption. The final iteration of the **EncipherIt** product lineup was standalone software that used GPG encryption. 
 
-![encipher.it bookmarklet usage](/assets/img/encipherit/encipherit-earlyusage.jpg)
+![encipher.it bookmarklet usage](/assets/img/encipherit/encipherit-earlyusage.png)
 
 For this write-up, I'll focus on the **web version** of the service, as it is no longer available online and is now accessible only via the **Wayback Machine**. There is a risk that it may eventually vanish from the internet altogether so my hope was to build an easy decryption tool in Python in case it's ever needed by users of the site.
 
@@ -138,7 +138,7 @@ I had never personally used or heard of **EncipherIt** until I encountered it in
 
 When I attempted to visit the website, it became clear that the service was no longer available, and the domain now redirects to a shady list of crypto casino websites. So unable to complete the lab, I decided to reverse-engineer the system to understand how it worked and see if building a decryption tool was feasible. It seemed like a fun project to do over the weekend. 
 
-![encipher.it gone](/assets/img/encipherit/encipherit-gone.jpg)
+![encipher.it gone](/assets/img/encipherit/encipherit-gone.png)
 
 Below is the provided ciphertext and password for the Packet Tracer lab exercise **2.5.2.6**:
 
@@ -147,7 +147,7 @@ ciphertext = "EnCt2488820db35158fbdc834a1b388154e9da202d78a488820db35158fbdc834a
 password = "maryftp123" 
 ```
 
-![Packet Tracer problem](/assets/img/encipherit/encipherit-packettracer.jpg)
+![Packet Tracer problem](/assets/img/encipherit/encipherit-packettracer.png)
 
 As a cryptography enthusiast, I took it upon myself to investigate how **EncipherIt** worked and if I could rebuild the decryption process and spent an entire weekend debugging and investigating it's secrets.
 
@@ -184,7 +184,7 @@ So, let’s dive in!
 
 To begin our analysis, let's start with how **EncipherIt** handles encryption of plaintext.
 
-![encipher.it Aes.Ctr.encrypt](/assets/img/encipherit/encipherit-encrypt.jpg)
+![encipher.it Aes.Ctr.encrypt](/assets/img/encipherit/encipherit-encrypt.png)
 
 ```javascript
 Encipher.prototype.encrypt = function(password, callback) {
