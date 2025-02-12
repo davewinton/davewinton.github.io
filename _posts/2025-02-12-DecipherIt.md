@@ -644,8 +644,8 @@ try:
   p_text = aes_ctr_decrypt(ciphertext, aes_key, nonce)
   return p_text.decode()
 except UnicodeDecodeError as e:
-	print(f"[!] Error: {e}")
-	return None
+  print(f"[!] Error: {e}")
+  return None
 ```
 
 ## Where can I find decipher.it.py?
