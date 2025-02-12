@@ -641,9 +641,8 @@ Finally, we can call our `aes_ctr_decrypt` function and recover the plaintext!
 ```python
 # Decrypt the ciphertext
 try:
-	p_text = aes_ctr_decrypt(ciphertext, aes_key, nonce)
-	if test_data:
-		return p_text.decode()
+  p_text = aes_ctr_decrypt(ciphertext, aes_key, nonce)
+  return p_text.decode()
 except UnicodeDecodeError as e:
 	print(f"[!] Error: {e}")
 	return None
