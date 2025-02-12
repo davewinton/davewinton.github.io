@@ -164,6 +164,8 @@ The screenshot below shows several files that required further investigation:
 - sha1.js
 - utf-8.js
 
+![encipher.it javascript](/assets/img/encipherit/encipherit-js.png)
+
 ### Cryptography
 
 The cryptography used in the **EncipherIt** crypto system seems to be pieced together from tools written by other programmers, many of which date back 15-20 years ago (or longer). One interesting thing I came across while researching this tool was discovering the GitHub of the author behind the `AES.js` script.
