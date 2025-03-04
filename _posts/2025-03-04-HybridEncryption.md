@@ -21,24 +21,24 @@ Symmetric encryption is commonly used in scenarios like file encryption, disk en
 
 - **Encryption:**
     
-    $C=E(K,P)$
+    $$C=E(K,P)$$
     
     Where:
     
-    - $C$ = Ciphertext (encrypted data)
-    - $E$ = Encryption function
-    - $K$ = Secret key
-    - $P$ = Plaintext (original data)
+    - $$C$$ = Ciphertext (encrypted data)
+    - $$E$$ = Encryption function
+    - $$K$$ = Secret key
+    - $$P$$ = Plaintext (original data)
 
 - **Decryption:**
     
-    $P=D(K,C)$
+    $$P=D(K,C)$$
     
     Where:
     
-    - $D$ = Decryption function
-    - $K$ = Same secret key used for encryption
-    - $C$ = Ciphertext
+    - $$D$$ = Decryption function
+    - $$K$$ = Same secret key used for encryption
+    - $$C$$ = Ciphertext
   
 ## Asymmetric Encryption
 
@@ -48,31 +48,31 @@ Asymmetric encryption is primarily used for secure communication, authentication
 
 - **Encryption:**
     
-    $C=E(K_{pub},P)$
+    $$C=E(K_{pub},P)$$
     
     Where:
     
-    - $C$ = Ciphertext
-    - $E$ = Encryption function
-    - $K_{pub}$​ = Public key
-    - $P$ = Plaintext
+    - $$C$$ = Ciphertext
+    - $$E$$ = Encryption function
+    - $$K_{pub}$$​ = Public key
+    - $$P$$ = Plaintext
 
 - **Decryption:**
     
-    $P=D(K_{priv},C)$
+    $$P=D(K_{priv},C)$$
     
     Where:
     
-    - $D$ = Decryption function
-    - $K_{priv}$​ = Private key
-    - $C$ = Ciphertext
+    - $$D$$ = Decryption function
+    - $$K_{priv}$$​ = Private key
+    - $$C$$ = Ciphertext
 
 For **RSA encryption**, a more specific formula is used:
 
-- **Encryption:** $C=P^e$  $mod  n$
-- **Decryption:** $P=C^d$  $mod  n$
+- **Encryption:** $$C=P^e$$  $$mod  n$$
+- **Decryption:** $$P=C^d$$  $$mod  n$$
 
-Where $e$ and $d$ are the public and private exponents, and $n$ is the modulus derived from two prime numbers.
+Where $$e$$ and $$d$$ are the public and private exponents, and $$n$$ is the modulus derived from two prime numbers.
 
 ## Hybrid Encryption
 Now that we understand symmetric and asymmetric encryption, let's explore hybrid encryption, which combines the strengths of both methods.
