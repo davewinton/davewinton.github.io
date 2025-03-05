@@ -153,6 +153,54 @@ def aes_eax_decrypt(ciphertext, key) -> (bytes,bool):
         return b'', False
 ```
 
+We also need the ability to sign and verify using RSA..
+
+```python
+def rsa_sign(message: bytes, pvt_key: RSA.RsaKey) -> bytes:
+    """Sign a message with an RsaKey private key"""
+    h = SHA256.new(message)
+    return pss.new(pvt_key).sign(h)
+
+
+def rsa_verify(message: bytes, pub_key: RSA.RsaKey, sig: bytes) -> bool:
+    """Verify a message with an RsaKey public key"""
+    h = SHA256.new(message)
+    msg_verifier = pss.new(pub_key)
+    try:
+        msg_verifier.verify(h, sig)
+        print("[+] Cryptographic signature verified!")
+        return True
+    except ValueError:
+        return False
+```
+
+We also need a way to load public and private RSA keys...
+
+```python
+def get_pvt_key(key_path):
+    """Returns an RSA.RsaKey object containing the Private Key"""
+    with open(key_path, "rb") as f:
+        data = f.read()
+
+    for _ in range(3):
+        try:
+            passwd = getpass("Enter private key passphrase: ")
+            return RSA.import_key(data, passphrase=passwd)
+        except (ValueError, TypeError):
+            print("[!] Incorrect passphrase. Try again.")
+
+    print("[!] Too many incorrect attempts. Exiting.")
+    exit(1)
+
+
+def get_pub_key(key_path) -> RSA.RsaKey | None:
+    """Returns a RSA.RsaKey object containing the Public Key"""
+    if path.exists(key_path):
+        with open(key_path, "rb") as f:
+            return RSA.import_key(f.read())
+    return None
+```
+
 Next, let's implement the logic for hybrid encryption:
 
 ```python
@@ -241,9 +289,93 @@ def hybrid_decrypt(ciphertext, pvt_key, pub_key=None) -> bytes | None:
     return plaintext
 ```
 
-Now, this is just the basic skeleton of the tool, but we now should have a fully working cryptosystem! 
+Now, this is just the basic skeleton of the tool, but we now should have a fully working cryptosystem! To finish it off I have created an `argparse` system and a `main()` function to nicely package the script for easy use of its functions..
 
-To see the full script you can visit [HyKrypt](https://github.com/davewinton/hykrypt) on my GitHub page.
+```python
+def main():
+    parser = argparse.ArgumentParser(description="Hybrid Encryption CLI")
+    parser.add_argument("-sK", "--signing-key", help="Signing key (Senders PVT_KEY)")
+    parser.add_argument("-vK", "--verify-key", help="Verification key (Senders PUB_KEY)")
+    parser.add_argument('--derive-key', action="store_true", help="Derive a custom key for AES encryption")
+    parser.add_argument("-c", "--create-keypair", metavar="KEY_PATH", help="Generate an RSA key pair")
+    parser.add_argument("-e", "--encrypt", metavar="PUB_KEY", help="Encrypt input using the specified public key")
+    parser.add_argument("-d", "--decrypt", metavar="PVT_KEY", help="Decrypt input using the specified private key")
+    parser.add_argument("-i", "--input", metavar="INPUT", help="Specify input text or file path")
+    parser.add_argument("-o", "--output", metavar="OUTPUT", help="Specify output file path")
+    args = parser.parse_args()
+
+    if args.create_keypair:
+        create_keypair(args.create_keypair)
+
+    elif args.encrypt and args.input:
+        if args.derive_key:
+            derive_custom_key = True
+        # Get signing key
+        signing_key = None
+        if args.signing_key:
+            print("[*] Importing private key for signing.. Get ready to enter password")
+            signing_key = get_pvt_key(args.signing_key)
+            if not signing_key:
+                print("[!] Private key not found.")
+                exit(1)
+        print("[*] Importing recipients public key..")
+        pub_key = get_pub_key(args.encrypt)
+        if not pub_key:
+            print("[!] Public key not found.")
+            exit(1)
+
+        print("[+] Keys successfully imported!")
+
+        input_data = args.input if path.exists(args.input) else args.input.encode()
+        if path.exists(args.input):
+            with open(args.input, "rb") as f:
+                input_data = f.read()
+
+        ciphertext = hybrid_encrypt(input_data, pub_key, signing_key)
+        if args.output:
+            with open(args.output, "w") as f:
+                f.write(ciphertext)
+        else:
+            print(f"\n=== Encrypted Output ===\n{ciphertext}")
+
+    elif args.decrypt and args.input:
+        # Get verify-key
+        verify_key = None
+        if args.verify_key:
+            print("[*] Importing public key for verification..")
+            verify_key = get_pub_key(args.verify_key)
+            if not verify_key:
+                print("[!] Verify key not found.")
+                exit(1)
+
+        # Get private key
+        print("[*] Importing private key for decryption..")
+        pvt_key = get_pvt_key(args.decrypt)
+        if not pvt_key:
+            print("[!] Private key not found.")
+            exit(1)
+
+        print("[+] Keys successfully imported!")
+
+        encrypted_data = args.input if path.exists(args.input) else args.input.encode()
+        if path.exists(args.input):
+            with open(args.input, "r") as f:
+                encrypted_data = f.read()
+
+        decrypted = hybrid_decrypt(encrypted_data, pvt_key, verify_key)
+        if args.output:
+            with open(args.output, "wb") as f:
+                f.write(decrypted)
+        else:
+            print(f"\n=== Decrypted Output ===\n{decrypted.decode()}")
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()
+
+```
 
 Here is a example usage and output:
 
@@ -286,6 +418,8 @@ Enter private key passphrase:
 This is a super secret message
 
 ```
+
+To see the full script you can visit [HyKrypt](https://github.com/davewinton/hykrypt) on my GitHub page.
 
 ## Conclusion
 Understanding the strengths and weaknesses of symmetric and asymmetric encryption is crucial for designing secure systems. Symmetric encryption offers speed and efficiency but requires a secure key exchange mechanism. Asymmetric encryption solves the key distribution problem but is computationally expensive for large data encryption. By combining both, hybrid encryption provides the best of both worlds, leveraging asymmetric encryption for key exchange and symmetric encryption for bulk data encryption.
