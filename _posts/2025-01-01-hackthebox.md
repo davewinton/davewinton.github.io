@@ -30,7 +30,7 @@ My hope is that this series becomes a useful "cheat sheet" for learners preparin
 - [Module 1: Web Requests]({% post_url 2025-01-29-m35-webrequests %})
 - [Module 2: Introduction to Web Applications]()
 - [Module 3: Using Web Proxies]()
-- [Module 11: File Injection Attacks]({% post_url   2025_01_01-m136-fileuploadattacks})
+- [Module 11: File Injection Attacks]({% post_url   2025_01_01-m136-fileuploadattacks %})
 
 ## SOC Analyst
 
