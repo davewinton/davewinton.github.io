@@ -4,7 +4,7 @@ title: HTB Academy - Web Requests Module
 author: Dave Winton
 category: cybersecurity 
 feature-img: "assets/img/pexels/Network.jpg"
-tags: [hackthebox, bugbountyhunter]
+tags: [hackthebox]
 excerpt_separator: <!--more-->
 ---
 
