@@ -4,7 +4,7 @@ title: HackTheBox Academy
 author: Dave Winton
 category: cybersecurity 
 feature-img: "assets/img/pexels/Network.jpg"
-tags: [hackthebox]
+tags: [hackthebox, pinned]
 excerpt_separator: <!--more-->
 ---
 ## Introduction

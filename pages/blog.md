@@ -6,7 +6,18 @@ feature-img: "assets/img/pexels/KeyboardDark.jpg"
 #hide: true
 ---
 
-# Blog Categories
+# Pinned Posts
+<ul>
+  {% for post in site.posts %}
+    {% if post.tags contains "pinned" %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y" }}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+## Blog Categories
 <!-- Blog Categories -->
 <div class="category-cards-row">
   {% for category in site.categories %}
