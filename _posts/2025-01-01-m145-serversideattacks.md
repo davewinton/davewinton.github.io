@@ -124,7 +124,7 @@ No questions
 
 1. Apply what you learned in this section and identify the Template Engine used by the web application. Provide the name of the template engine as the answer.
 
-![mod145_sec08_q01_a00.png](/assets/img/htb/mod145_sec08_q01_a00.png)
+![mod145_sec08_q01_a00.png](/assets/img/htb/mod145_sec08_q01_a01.png)
 
 Returns 49
 
@@ -136,7 +136,7 @@ Answer: `twig`
 
 The payload is 
 
-![mod145_sec09_q01_a00.png](/assets/img/htb/mod145_sec09_q01_a00.png)
+![mod145_sec09_q01_a00.png](/assets/img/htb/mod145_sec09_q01_a01.png)
 
 Answer: `HTB{295649e25b4d852185ba34907ec80643}`
 
@@ -146,7 +146,7 @@ Answer: `HTB{295649e25b4d852185ba34907ec80643}`
 
 The RCE payload is:
 
-![mod145_sec10_q01_a00.png](/assets/img/htb/mod145_sec10_q01_a00.png)
+![mod145_sec10_q01_a00.png](/assets/img/htb/mod145_sec10_q01_a01.png)
 
 Answer: `HTB{5034a6692604de344434ae83f1cdbec6}`
 
