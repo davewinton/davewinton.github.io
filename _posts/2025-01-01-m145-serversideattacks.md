@@ -16,8 +16,10 @@ This module covers common server-side security vulnerabilities that lead to deva
 - Identifying and Exploiting XSLT Injection vulnerabilities
 <!--more-->
 
+Go back to: [HTB Solutions]({% post_url 2025-01-01-hackthebox %})
+
 #### Resources
-- [HackTheBox Module](https://academy.hackthebox.com/module/details/145)
+- [HTB Academy - Server-side Attacks Module](https://academy.hackthebox.com/module/details/145)
 - [Server-side Attacks Cheat-Sheet](https://academy.hackthebox.com/module/cheatsheet/145)
 
 ---
@@ -124,7 +126,7 @@ No questions
 
 1. Apply what you learned in this section and identify the Template Engine used by the web application. Provide the name of the template engine as the answer.
 
-![mod145_sec08_q01_a00.png](/assets/img/htb/mod145_sec08_q01_a01.png)
+![mod145_sec08_q01_a01.png](/assets/img/htb/mod145_sec08_q01_a01.png)
 
 Returns 49
 
@@ -136,7 +138,7 @@ Answer: `twig`
 
 The payload is 
 
-![mod145_sec09_q01_a00.png](/assets/img/htb/mod145_sec09_q01_a01.png)
+![mod145_sec09_q01_a01.png](/assets/img/htb/mod145_sec09_q01_a01.png)
 
 Answer: `HTB{295649e25b4d852185ba34907ec80643}`
 
@@ -146,7 +148,7 @@ Answer: `HTB{295649e25b4d852185ba34907ec80643}`
 
 The RCE payload is:
 
-![mod145_sec10_q01_a00.png](/assets/img/htb/mod145_sec10_q01_a01.png)
+![mod145_sec10_q01_a01.png](/assets/img/htb/mod145_sec10_q01_a01.png)
 
 Answer: `HTB{5034a6692604de344434ae83f1cdbec6}`
 
